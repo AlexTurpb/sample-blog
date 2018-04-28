@@ -1,2 +1,18 @@
 <h1>Home#contacts</h1>
 <p>Find me in app/views/home/contacts.html.erb</p>
+
+<form action="/contacts" accept-charset="UTF-8" method="post">
+	<p>
+		<label>Mail</label>
+		<input type="text" name="mail[contacts]" value="" />
+	</p>
+
+	<p>
+		<label>Message</label>
+		<textarea name="message[contacts]" value=""></textarea>
+	</p>
+
+	<p>
+		<input type="submit" name="commit" value="Send message"/>
+	</p>
+</form>
