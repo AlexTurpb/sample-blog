@@ -18,4 +18,7 @@ class ArticlesController < ApplicationController
     params.require(:article).permit(:title, :text)
   end
 
+  def index
+  end
+
 end
