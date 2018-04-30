@@ -5,7 +5,11 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new params_article
-    @article.save
+    if @article.valid? 
+      @article.save
+    else
+      render action: 'new'
+    end
   end
 
   private
