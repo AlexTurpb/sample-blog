@@ -19,6 +19,12 @@ class ArticlesController < ApplicationController
   end
 
   def index
+    @article = Article.all
   end
 
+  def edit
+  end
+
+  def show
+  end
 end
