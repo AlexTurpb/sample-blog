@@ -3,6 +3,15 @@ class ArticlesController < ApplicationController
     @articles = Article.all
   end
 
+  def edit
+    @article = Article.find(params[:id])
+  end
+
+  def update
+    @article = Article.find(params[:id])
+    @article.update params_article
+  end
+
   def new
   end
 
@@ -13,9 +22,6 @@ class ArticlesController < ApplicationController
     else
       render action: 'new'
     end 
-  end
-
-  def edit
   end
 
   def create
@@ -32,5 +38,4 @@ class ArticlesController < ApplicationController
   def params_article
     params.require(:article).permit(:title, :text)
   end
-  
 end
