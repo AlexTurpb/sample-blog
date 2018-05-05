@@ -7,7 +7,12 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
+    if Article.exists?(params[:id])
+      @article = Article.find(params[:id])
+      render action: 'show'
+    else
+      render action: 'new'
+    end 
   end
 
   def edit
