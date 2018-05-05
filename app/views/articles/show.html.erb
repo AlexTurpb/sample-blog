@@ -2,3 +2,9 @@
 <p>
 	Article # <%= Article.find(params[:id]).id %>
 </p>
+<p>
+	<%= Article.find(params[:id]).title %>
+</p>
+<p>
+	<%= Article.find(params[:id]).text %>
+</p>
