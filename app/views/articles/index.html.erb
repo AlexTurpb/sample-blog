@@ -5,7 +5,10 @@
 			<li>
 				<h2><%= article.title %></h2><br/>
 				<p><%= article.text %></p>
-				<p><%= link_to 'Show', article %> | <%= link_to 'Edit', edit_article_url(article) %></p><hr/>
+				<p><%= link_to 'Show', article %> |
+					<%= link_to 'Edit', edit_article_url(article) %> |
+					<%= link_to 'Delete', article, method: :delete %>	
+				</p><hr/>
 			</li> 
 		<%end%>	
 	</ol>

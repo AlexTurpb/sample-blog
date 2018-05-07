@@ -1,9 +1,9 @@
 class ArticlesController < ApplicationController
 
+  before_action :find_articles, only: [:index, :destroy]
   before_action :find_article, only: [:show, :edit, :update, :destroy]
 
   def index
-    @articles = Article.all
   end
 
   def edit
@@ -32,6 +32,14 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def destroy
+    if @article.delete
+      render 'index'
+    else
+      redirect_to @article
+    end
+  end
+
   private
 
   def article_params
@@ -44,5 +52,9 @@ class ArticlesController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def find_articles
+    @articles = Article.all
   end
 end
