@@ -1,8 +1,11 @@
-<h2>Articles</h2>
+<h1>List fo articles</h1>
 <p>
 	<ol>
 		<% @articles.each do |show_article| %>
-			<li><%= show_article %></li> 
+			<li>
+				<h2><%= show_article.title %></h2><br/>
+				<p><%= show_article.text %></p><hr/>
+			</li> 
 		<%end%>	
 	</ol>
 </p>
