@@ -10,7 +10,11 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @article.update article_params
+    if @article.update article_params
+      redirect_to @article
+    else
+      render 'edit'
+    end
   end
 
   def new
@@ -21,11 +25,10 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new article_params
-    if @article.valid? 
-      @article.save
+    if @article.save
       redirect_to @article
     else
-      render action: 'new'
+      render 'new'
     end
   end
 
@@ -39,7 +42,7 @@ class ArticlesController < ApplicationController
     if Article.exists?(params[:id])
       @article = Article.find(params[:id])
     else
-      render action: 'new'
+      render 'new'
     end
   end
 end

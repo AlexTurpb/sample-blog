@@ -1,12 +1,12 @@
 <h2> Edit Article </h2>
 
-<%= form_for @article do |f| %>
+<%= form_for @article, method: :put do |f| %>
 	<% if @article && @article.errors.any? %>
 	<p>	
 		<ul>
 		<% @article.errors.full_messages.each do |msg| %>
 			<li><%= msg %></li>
-		<% end %>
+		<% end %>	
 		</ul>
 	</p>
 	<% end %>
