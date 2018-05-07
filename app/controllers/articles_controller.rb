@@ -10,7 +10,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @article.update params_article
+    @article.update article_params
   end
 
   def new
@@ -20,7 +20,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new params_article
+    @article = Article.new article_params
     if @article.valid? 
       @article.save
       redirect_to @article
@@ -31,7 +31,7 @@ class ArticlesController < ApplicationController
 
   private
 
-  def params_article
+  def article_params
     params.require(:article).permit(:title, :text)
   end
 
