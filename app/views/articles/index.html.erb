@@ -1,11 +1,11 @@
 
 <p>
 	<ol>
-		<% @articles.each do |show_article| %>
+		<% @articles.each do |article| %>
 			<li>
-				<h2><%= show_article.title %></h2><br/>
-				<p><%= show_article.text %></p>
-				<p><%= link_to 'Show', show_article %></p><hr/>
+				<h2><%= article.title %></h2><br/>
+				<p><%= article.text %></p>
+				<p><%= link_to 'Show', article %> | <%= link_to 'Edit', edit_article_url(article) %></p><hr/>
 			</li> 
 		<%end%>	
 	</ol>
