@@ -1,14 +1,15 @@
 class ArticlesController < ApplicationController
+
+  before_action :find_article, only: [:show, :edit, :update, :destroy]
+
   def index
     @articles = Article.all
   end
 
   def edit
-    @article = Article.find(params[:id])
   end
 
   def update
-    @article = Article.find(params[:id])
     @article.update params_article
   end
 
@@ -16,12 +17,6 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    if Article.exists?(params[:id])
-      @article = Article.find(params[:id])
-      render action: 'show'
-    else
-      render action: 'new'
-    end 
   end
 
   def create
@@ -37,5 +32,13 @@ class ArticlesController < ApplicationController
 
   def params_article
     params.require(:article).permit(:title, :text)
+  end
+
+  def find_article
+    if Article.exists?(params[:id])
+      @article = Article.find(params[:id])
+    else
+      render action: 'new'
+    end
   end
 end
