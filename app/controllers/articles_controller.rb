@@ -33,7 +33,7 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    if @article.delete
+    if @article.destroy
       render 'index'
     else
       redirect_to @article
