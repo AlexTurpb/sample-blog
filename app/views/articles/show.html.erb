@@ -19,15 +19,9 @@
 
 <%= link_to 'Show all articles', articles_path %><hr/>
 
-<h4>Add new one:</h3>
+<h4>Add new comment:</h3>
 <%= form_for ([@article, @article.comments.build]) do |f| %>
 	
-
-	<p>
-		<%= f.label :author %><br/>
-		<%= f.text_field :author %>
-	</p>
-
 	<p>
 		<%= f.label :body %><br/>
 		<%= f.text_area :body %>
