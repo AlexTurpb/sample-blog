@@ -1,5 +1,8 @@
-<h2> Edit Article </h2>
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+	<h2 class="display-4"> Edit Article </h2>
+</div>
 
+<div class="container">
 <%= form_for @article, method: :put do |f| %>
 	<% if @article && @article.errors.any? %>
 	<p>	
@@ -26,3 +29,4 @@
 	</p>
 
 <%end%>
+</div>

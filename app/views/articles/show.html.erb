@@ -1,7 +1,8 @@
-<h2>Show</h2>
-<p>
-	Article # <%= @article.id %>
-</p>
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+	<h2 class="display-4">Article # <%= @article.id %></h2>
+</div>
+<div class="container">
+
 <p>
 	<%= @article.title %>
 </p>
@@ -19,7 +20,7 @@
 
 <%= link_to 'Show all articles', articles_path %><hr/>
 
-<h4>Add new comment:</h3>
+<h4>Add new comment:</h4>
 <%= form_for ([@article, @article.comments.build]) do |f| %>
 	
 	<p>
@@ -32,4 +33,5 @@
 	</p><hr/>
 
 <%end%>
+</div>
 
