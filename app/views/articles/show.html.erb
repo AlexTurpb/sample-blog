@@ -2,36 +2,39 @@
 	<h2 class="display-4">Article # <%= @article.id %></h2>
 </div>
 <div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<p>
+				<%= @article.title %>
+			</p>
+			<p>
+				<%= @article.text %>
+			</p><hr/>
 
-<p>
-	<%= @article.title %>
-</p>
-<p>
-	<%= @article.text %>
-</p><hr/>
 
+			<h3>Comments:</h3>	
+			<ul>
+				<% @article.comments.each do |comment| %>
+					<li>By: <%=comment.author %> | <%= comment.body %><% end %> </li>
+				
+			</ul>
 
-<h3>Comments:</h3>	
-<ul>
-	<% @article.comments.each do |comment| %>
-		<li>By: <%=comment.author %> | <%= comment.body %><% end %> </li>
-	
-</ul>
+			<%= link_to 'Show all articles', articles_path %><hr/>
 
-<%= link_to 'Show all articles', articles_path %><hr/>
+			<h4>Add new comment:</h4>
+			<%= form_for ([@article, @article.comments.build]) do |f| %>
+				
+				<p>
+					<%= f.label :body %><br/>
+					<%= f.text_area :body %>
+				</p>
 
-<h4>Add new comment:</h4>
-<%= form_for ([@article, @article.comments.build]) do |f| %>
-	
-	<p>
-		<%= f.label :body %><br/>
-		<%= f.text_area :body %>
-	</p>
+				<p>
+					<%= f.submit %>
+				</p><hr/>
 
-	<p>
-		<%= f.submit %>
-	</p><hr/>
-
-<%end%>
+			<%end%>
+		</div>
+	</div>
 </div>
 
